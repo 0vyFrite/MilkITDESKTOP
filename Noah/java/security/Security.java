@@ -1,8 +1,6 @@
 package Noah.java.security;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class Security {
     public String hashPassword(String password) {
@@ -10,18 +8,14 @@ public class Security {
             throw new IllegalArgumentException("password cannot be null");
         }
 
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashedBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            StringBuilder hex = new StringBuilder();
+        return BCrypt.hashpw(password, BCrypt.gensalt(10));
+    }
 
-            for (byte hashedByte : hashedBytes) {
-                hex.append(String.format("%02x", hashedByte));
-            }
-
-            return hex.toString();
-        } catch (NoSuchAlgorithmException exception) {
-            throw new IllegalStateException("SHA-256 unavailable", exception);
+    public boolean checkPassword(String password, String hashedPassword) {
+        if (password == null || hashedPassword == null) {
+            return false;
         }
+
+        return BCrypt.checkpw(password, hashedPassword);
     }
 }

@@ -89,7 +89,7 @@ public class Formulaire extends JFrame {
                 String motDePasse = parts[1].trim();
                 String role = parts.length >= 3 ? parts[2].trim() : "user";
 
-                utilisateurs.add(new Utilisateur(email, security.hashPassword(motDePasse), role));
+                utilisateurs.add(new Utilisateur(email, motDePasse, role));
             }
         } catch (IOException exception) {
             throw new IllegalStateException("Impossible de charger les utilisateurs depuis " + usersFile, exception);

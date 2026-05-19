@@ -35,7 +35,7 @@ public class Utilisateur {
     public boolean isUtilisateur(List<Utilisateur> utilisateurs, Utilisateur utilisateur) {
         for (Utilisateur u : utilisateurs) {
             if (u.getEmail().equals(this.email)
-                    && u.getMotDePasse().equals(security.hashPassword(this.motDePasse))) {
+                    && security.checkPassword(this.motDePasse, u.getMotDePasse())) {
                 return true;
             }
         }
@@ -45,7 +45,7 @@ public class Utilisateur {
     public boolean isAdmin(List<Utilisateur> utilisateurs, Utilisateur utilisateur) {
         for (Utilisateur u : utilisateurs) {
             if (u.getEmail().equals(this.email)
-                    && u.getMotDePasse().equals(security.hashPassword(this.motDePasse))
+                    && security.checkPassword(this.motDePasse, u.getMotDePasse())
                     && "admin".equalsIgnoreCase(u.getRole())) {
                 return true;
             }
