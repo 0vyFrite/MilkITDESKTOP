@@ -1,8 +1,8 @@
-package Noah.java.Model;
-
-import Noah.java.security.Security;
+package src.java.Model;
 
 import java.util.List;
+
+import src.java.security.Security;
 
 public class Utilisateur {
     private final Security security = new Security();

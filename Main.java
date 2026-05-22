@@ -1,6 +1,6 @@
 import javax.swing.SwingUtilities;
 
-import Noah.java.Interface.Formulaire;
+import src.java.Interface.Formulaire;
 
 public class Main {
     public static void main(String[] args) {

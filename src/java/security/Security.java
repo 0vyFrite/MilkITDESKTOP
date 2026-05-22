@@ -1,4 +1,4 @@
-package Noah.java.security;
+package src.java.security;
 
 import org.mindrot.jbcrypt.BCrypt;
 

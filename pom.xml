@@ -31,7 +31,7 @@
                 <configuration>
                     <includes>
                         <include>Main.java</include>
-                        <include>Noah/java/**/*.java</include>
+                        <include>src/java/**/*.java</include>
                     </includes>
                 </configuration>
             </plugin>

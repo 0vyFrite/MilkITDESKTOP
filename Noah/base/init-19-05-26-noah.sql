@@ -1,1 +1,0 @@
-/* Mbola ts miasa */

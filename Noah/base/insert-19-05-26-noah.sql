@@ -1,1 +1,0 @@
-/* Mbola tsy miasa */
